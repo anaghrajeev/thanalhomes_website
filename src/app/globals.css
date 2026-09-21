@@ -1,26 +1,208 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* ── Brand palette (extracted from logo) ─────────────────────── */
+  --color-brand-orange:      #E6910F;
+  --color-brand-amber:       #F7B01A;
+  --color-brand-orange-text: #9C5100;
+  --color-brand-green:       #23AB20;
+  --color-brand-green-dark:  #177D08;
+  --color-brand-green-tint:  #EAF4E6;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* ── Neutrals ─────────────────────────────────────────────────── */
+  --color-ink:      #2B2B2B;
+  --color-ink-soft: #545468;
+  --color-line:     #E4DCCF;
+  --color-bg:       #FBF8F3;
+  --color-bg-alt:   #F3ECE0;
+  --color-dark:     #23262A;
+
+  /* ── Semantic aliases used by Shadcn / Tailwind ───────────────── */
+  --color-background:          var(--color-bg);
+  --color-foreground:          var(--color-ink);
+  --color-ring:                var(--color-brand-orange);
+  --color-input:               var(--color-line);
+  --color-border:              var(--color-line);
+  --color-destructive:         #C0392B;
+  --color-primary:             var(--color-brand-orange);
+  --color-primary-foreground:  var(--color-ink);
+  --color-muted:               var(--color-bg-alt);
+  --color-muted-foreground:    var(--color-ink-soft);
+  --color-secondary:           var(--color-bg-alt);
+  --color-secondary-foreground:var(--color-ink);
+
+  /* ── Typography ──────────────────────────────────────────────── */
+  --font-sans:    var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-cormorant), ui-serif, Georgia, serif;
+
+  /* ── Radii ───────────────────────────────────────────────────── */
+  --radius-sm:  2px;
+  --radius-md:  4px;
+  --radius-lg:  8px;
+  --radius-xl:  12px;
+  --radius-2xl: 16px;
+
+  /* ── Animations ──────────────────────────────────────────────── */
+  --animate-marquee:          marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  --animate-shimmer-slide:    shimmer-slide var(--speed) ease-in-out infinite alternate;
+  --animate-spin-around:      spin-around calc(var(--speed) * 2) infinite linear;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(calc(-100% - var(--gap))); }
+  }
+  @keyframes marquee-vertical {
+    from { transform: translateY(0); }
+    to   { transform: translateY(calc(-100% - var(--gap))); }
+  }
+  @keyframes shimmer-slide {
+    to { transform: translate(calc(100cqw - 100%), 0); }
+  }
+  @keyframes spin-around {
+    0%        { transform: translateZ(0) rotate(0); }
+    15%, 35%  { transform: translateZ(0) rotate(90deg); }
+    65%, 85%  { transform: translateZ(0) rotate(270deg); }
+    100%      { transform: translateZ(0) rotate(360deg); }
+  }
+  @keyframes noise {
+    0%, 100% { transform: translate(0, 0); }
+    10%      { transform: translate(-5%, -5%); }
+    20%      { transform: translate(-10%, 5%); }
+    30%      { transform: translate(5%, -10%); }
+    40%      { transform: translate(-5%, 15%); }
+    50%      { transform: translate(-10%, 5%); }
+    60%      { transform: translate(15%, 0); }
+    70%      { transform: translate(0, 15%); }
+    80%      { transform: translate(3%, 35%); }
+    90%      { transform: translate(-10%, 10%); }
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ── Brand gradient helper ───────────────────────────────────── */
+:root {
+  --radius: 4px;
+  --brand-gradient: linear-gradient(135deg, var(--color-brand-orange) 0%, var(--color-brand-amber) 100%);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+    scroll-padding-top: 96px;
+  }
+  /* Better tap targets on mobile */
+  button, a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* ── Lenis ────────────────────────────────────────────────────── */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* ── Fluid typography ─────────────────────────────────────────── */
+.h1-fluid {
+  font-size: clamp(2.75rem, 8vw, 5.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.h2-fluid {
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.h3-fluid {
+  font-size: clamp(1.6rem, 4vw, 2.25rem);
+  line-height: 1.2;
+}
+
+.eyebrow {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 500;
+}
+
+.body-large {
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+.body-base {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* ── Noise overlay ────────────────────────────────────────────── */
+.noise-overlay::before {
+  content: "";
+  position: fixed;
+  inset: -100%;
+  width: 300%;
+  height: 300%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  animation: noise 8s steps(10) infinite;
+  pointer-events: none;
+  z-index: 50;
+}
+
+/* ── Shadows ──────────────────────────────────────────────────── */
+.shadow-soft {
+  box-shadow: 0 2px 12px rgba(35, 38, 42, 0.08);
+}
+.shadow-raised {
+  box-shadow: 0 8px 32px rgba(35, 38, 42, 0.16);
+}
+.shadow-orange {
+  box-shadow: 0 8px 24px rgba(230, 145, 15, 0.2);
+}
+
+/* ── Brand gradient utilities ─────────────────────────────────── */
+.bg-brand-gradient {
+  background: var(--brand-gradient);
+}
+.text-brand-gradient {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ── Input focus ring override ────────────────────────────────── */
+input:focus-visible,
+textarea:focus-visible,
+[data-slot="select-trigger"]:focus-visible {
+  outline: 2px solid var(--color-brand-orange) !important;
+  outline-offset: 2px;
+  border-color: var(--color-brand-orange) !important;
 }
