@@ -1,20 +1,20 @@
 export const brand = {
-  name: "Thanal Affordable Homes LLP",
+  name: "Budget Homes",
   tagline: "HOME FOR ALL - ALL FOR HOME",
-  intro: "Thanal Homes provide complete assistance in building your home. From Planning - Agreement - Bank loan - Permit - to Completing the HOME construction. We will provide Affordable, Value & Easy Housing.",
+  intro: "Budget Homes provide complete assistance in building your home. From Planning - Agreement - Bank loan - Permit - to Completing the HOME construction. We will provide Affordable, Value & Easy Housing.",
   contact: {
     phone: "+91 94470 02281",
     phoneUrl: "tel:+919447002281",
     whatsapp: "https://wa.me/919447002281",
-    email: "cre.thanalhomes@gmail.com",
+    email: "cre.budgethomes@gmail.com",
     address: "3rd Floor, Door No: 1308, Tower-1, Hilite Business Park, Hilite City, Thondayad Bypass, G A, College P O, Kerala 673014",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=3rd+Floor,+Door+No:+1308,+Tower-1,+Hilite+Business+Park,+Hilite+City,+Thondayad+Bypass,+G+A,+College+P+O,+Kerala+673014",
     hours: "Monday to Saturday, 9:00 AM - 5:30 PM (closed on Sundays)",
   },
   socials: {
-    instagram: "https://instagram.com/thanalhomes",
-    facebook: "https://facebook.com/thanalhomes",
-    youtube: "https://youtube.com/@thanalhomes"
+    instagram: "https://instagram.com/budgethomes",
+    facebook: "https://facebook.com/budgethomes",
+    youtube: "https://youtube.com/@budgethomes"
   }
 };
 
@@ -60,7 +60,7 @@ export const googleReviews = [
   {
     author: "Rahul M",
     rating: 5,
-    text: "Thanal Homes made our dream of owning a house a reality. Their team handled everything from planning to construction flawlessly. Highly recommended!",
+    text: "Budget Homes made our dream of owning a house a reality. Their team handled everything from planning to construction flawlessly. Highly recommended!",
     date: "2 months ago"
   },
   {

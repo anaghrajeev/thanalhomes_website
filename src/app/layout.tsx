@@ -19,13 +19,13 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://thanalhomes.com"),
-  title: "Thanal Affordable Homes LLP | Home for all - All for home",
+  metadataBase: new URL("https://budgethomes.com"),
+  title: "Budget Homes | Home for all - All for home",
   description: brand.intro,
   openGraph: {
-    title: "Thanal Affordable Homes LLP | Home for all - All for home",
+    title: "Budget Homes | Home for all - All for home",
     description: brand.intro,
-    images: ["/logo.png"], // updated to logo as requested
+    images: ["/images/bdgthomes-logo.png"], // updated to logo as requested
     type: "website",
     locale: "en_IN"
   }
@@ -55,7 +55,7 @@ export default function RootLayout({
       "addressCountry": "IN"
     },
     "openingHours": "Mo,Tu,We,Th,Fr,Sa 09:00-17:30",
-    "url": "https://thanalhomes.com"
+    "url": "https://budgethomes.com"
   };
 
   return (

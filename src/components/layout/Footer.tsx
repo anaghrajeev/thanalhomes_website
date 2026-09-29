@@ -29,7 +29,7 @@ export function Footer() {
           <div className="space-y-5 sm:col-span-2 md:col-span-1">
             {/* Logo on ivory plate */}
             <div className="inline-flex bg-bg p-3 rounded-xl shadow-soft">
-              <img src="/logo.png" alt="Thanal Homes" className="h-9 md:h-10 w-auto object-contain" />
+              <img src="/images/bdgthomes-logo.png" alt="Budget Homes" className="h-9 md:h-10 w-auto object-contain" />
             </div>
             <p className="text-sm leading-relaxed max-w-sm text-bg/60">
               {brand.intro}

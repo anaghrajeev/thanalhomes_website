@@ -40,8 +40,8 @@ export function Header() {
         {/* Logo */}
         <a href="#" className="flex items-center py-2 shrink-0">
           <img
-            src="/logo.png"
-            alt="Thanal Homes"
+            src="/images/bdgthomes-logo.png"
+            alt="Budget Homes"
             className={`object-contain transition-all duration-300 ${
               scrolled ? "h-6 sm:h-7" : "h-7 sm:h-8 md:h-10"
             }`}
@@ -79,7 +79,7 @@ export function Header() {
               <div className="flex flex-col h-full">
                 {/* Sheet header */}
                 <div className="flex items-center justify-between p-6 border-b border-line">
-                  <img src="/logo.png" alt="Thanal Homes" className="h-8 object-contain" />
+                  <img src="/images/bdgthomes-logo.png" alt="Budget Homes" className="h-8 object-contain" />
                   <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                 </div>
 
