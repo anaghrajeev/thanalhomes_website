@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Budget Homes | Home for all - All for home",
     description: brand.intro,
-    images: ["/images/bdgthomes-logo.png"], // updated to logo as requested
+    images: ["/images/bdjet-homes.png"], // updated to logo as requested
     type: "website",
     locale: "en_IN"
   }

@@ -64,7 +64,7 @@ export function LoadingScreen() {
                 className="absolute inset-0 bg-brand-amber/30 blur-3xl rounded-full z-0 pointer-events-none"
               />
               <Image 
-                src="/images/bdgthomes-logo.png" 
+                src="/images/bdjet-homes.png" 
                 alt="Budget Homes" 
                 fill 
                 sizes="(max-width: 768px) 250px, 350px"
